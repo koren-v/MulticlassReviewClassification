@@ -11,6 +11,19 @@ In short, this repository shows my steps in solving the task in several notebook
 |  [Ensemble.ipynb](https://github.com/koren-v/MulticlassReviewClassification/blob/master/Ensemble.ipynb)  |  Shows creating an ensembles:  simple voting and blending using KNN. This approaches gave same scores compearing with single models.  |
 |  [Bert_for_Pair.ipynb](https://github.com/koren-v/MulticlassReviewClassification/blob/master/Bert_for_Pair.ipynb)  |  In this notebook I tried to put into Bert pairs of sentences separating them by special token as it was done during pre-training Bert. As a result, this model showed a much better score even than an ensemble. Except for the performance, one more benefit of this approach is that we don't need to save two or even three models for evaluating.  |
 
+## Data
+
+The dataset was really big and as time is limited I decided that it would be a smart decision to use a subsample of data. As I mentioned before dataset was unbalanced, so to get good representative training and evaluation sets I used stratified subsampling. During EDA I found that field 'summary' has values like 'Five Stars', 'Four Stars' and so on. It looks like default value, but not each target corresponds to this value for rows with these values. It possible to use this fact as metafeature, but I decided to not implement this idea.
+Also, I didn't find a linear correlation with the target in features as 'image', 'style', 'vote' and 'verified', so I didn't build the model on these features as I wanted.
+
+<p align="center">
+  <img src="/images/correlation.PNG">
+</p>
+
+## Hyperparameters tuning
+
+As models that I used were big (even as I used not large configuration), the training loop was really long, so I almost didn't change hyperparameters. The only thing is, I tried a different number of neighbors in KNN and made the conclusion that increasing this number we make our model more robust to overfitting that is pretty logical. 
+
 ## Comparison
 
 |  Model  |  Validation F1-score  |
