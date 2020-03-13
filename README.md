@@ -20,6 +20,10 @@ Also, I didn't find a linear correlation with the target in features as 'image',
   <img src="/images/correlation.PNG">
 </p>
 
+## Model
+
+The model's architecture consists of pre-trained Bert as an encoder and fully-connected head with dropout for classification. I used bert-base-uncased configuration from pytorch-pretrained-bert (but forgot to set up do_lower_case = False in BertTokenizer)
+
 ## Hyperparameters tuning
 
 As models that I used were big (even as I used not large configuration), the training loop was really long, so I almost didn't change hyperparameters. The only thing is, I tried a different number of neighbors in KNN and made the conclusion that increasing this number we make our model more robust to overfitting that is pretty logical. 
