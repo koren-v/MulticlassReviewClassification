@@ -22,7 +22,7 @@ Also, I didn't find a linear correlation with the target in features as 'image',
 
 ## Model
 
-The model's architecture consists of pre-trained Bert as an encoder and fully-connected head with dropout for classification. I used bert-base-uncased configuration from pytorch-pretrained-bert (but forgot to set up do_lower_case = False in BertTokenizer)
+The model's architecture consists of pre-trained Bert as an encoder and fully-connected head with dropout for classification. I used bert-base-uncased configuration from pytorch-pretrained-bert.
 
 ## Hyperparameters tuning
 
